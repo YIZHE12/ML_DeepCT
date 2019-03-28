@@ -1,5 +1,4 @@
-# Micro_CT_data_process 
-CT data process:
+# CT image process 
 
 Image reconstruction (using Astra or CNN)
 
