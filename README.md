@@ -1,6 +1,6 @@
 # CT image process 
 ___
-Image reconstruction (using Astra or CNN)
+Image reconstruction (using Astra or deep learning)
 
 Image registration and stitching (using manual aligment or automatic image registration)
 
