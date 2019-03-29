@@ -1,6 +1,8 @@
 # CT image process 
 
-[Image reconstruction]()using Astra or deep learning
+## [Image reconstruction]()
+
+using Astra or deep learning
 ___
 [Image registration and stitching]() with automatic image registration
 ___
