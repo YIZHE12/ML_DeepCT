@@ -26,6 +26,7 @@ using mouse and opencv to create label data for image segmentation
 ## [Image segementation]() 
 
 Markov random field and layer detection image segmentation toolkit originated from http://qim.compute.dtu.dk/tools/
+The implementation of U-net for image segmentation comes largely from https://github.com/zhixuhao/unet
 
 
 
