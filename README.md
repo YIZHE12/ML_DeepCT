@@ -16,7 +16,7 @@ Automap is a deep learning method with convolutional neural network. Originally 
 
 ## [Image registration and stitching](pre_processing) 
 
-Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use XX and XX for CT image registrion in order to stitch two CT volumn to increase the field of view.
+Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use to use machine learning methods for CT image registrion and to stitch two CT volumn to increase the field of view.
 
 ## [Image annotation](Label_annotation_with_mouse) 
 
