@@ -1,14 +1,15 @@
 # X-ray and CT image processing
-___
-## [Image reconstruction]()
+
+## [Image reconstruction](Image_reconstruction)
 
 ### Astra 
 Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebraic reconstruction techniques. 
 source: https://www.astra-toolbox.com/
-In this example, I show how to combine Astra with novel resampling method to increase the time resolution of CT by 8-fold.
+[In this example](Image_reconstruction/Astra), I show how to combine Astra with novel resampling method to increase the time resolution of CT by 8-fold.
 
 ### Automap
-Automap is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. Here, I showed that it can also be used for CT image reconsturction, which has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. Here, I showed that with deep learning method, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
+Automap is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. Here, I showed that it can also be used for [CT image reconsturction](Image_reconstruction/Deep learning (AUTOMAP)), which has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. Here, I showed that with deep learning method, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
+<img src=Image_reconstruction/Deep learning (AUTOMAP)/automap.jpg height = 500>
 
 ## [Image registration and stitching]() 
 
@@ -21,7 +22,7 @@ using mouse and opencv to create label data for image segmentation
 
 ## [Image segementation]() 
 
-Markov random field and layer detection image segmentation originated from http://qim.compute.dtu.dk/tools/
+Markov random field and layer detection image segmentation toolkit originated from http://qim.compute.dtu.dk/tools/
 
 
 
