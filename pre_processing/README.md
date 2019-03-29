@@ -1,4 +1,4 @@
-# CT image preprocessing: multiple volumn stitching
+# CT image preprocessing: multiple volumn stitching with Machine Learning methods
 This is a python script for CT image preprocessing to stitch two CT volumn to increase the field of view without sacrificing the spatial resolution. 
 ### Step 1: Histogram matching
 ### Step 2: Feature matching
