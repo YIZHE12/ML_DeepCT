@@ -1,8 +1,9 @@
-# CT image process 
+# X-ray and CT image processing
 ___
 ## [Image reconstruction]()
 
-using Astra or deep learning
+### Astra 
+### Automap
 
 ## [Image registration and stitching]() 
 
