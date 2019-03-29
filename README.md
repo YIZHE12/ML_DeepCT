@@ -21,7 +21,7 @@ using mouse and opencv to create label data for image segmentation
 
 ## [Image segementation]() 
 
-Markov random field and layer detection image segmentation originated from http://qim.compute.dtu.dk/tools/
+Markov random field and layer detection image segmentation toolkit originated from http://qim.compute.dtu.dk/tools/
 
 
 
