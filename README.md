@@ -1,6 +1,6 @@
 # CT image process 
 
-[Image reconstruction](Image reconstruction) 
+[Image reconstruction](Micro_CT_data_process/Image reconstruction/Astra/Main.m) 
 (using Astra or deep learning)
 
 Image registration and stitching (using manual aligment or automatic image registration)
