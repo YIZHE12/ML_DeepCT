@@ -1,20 +1,26 @@
 # CT image process 
-
+___
 ## [Image reconstruction]()
 
 using Astra or deep learning
-___
-[Image registration and stitching]() with automatic image registration
-___
 
-[Image notation]() using mouse to create label data for image segmentation
-___
+## [Image registration and stitching]() 
 
-[Image segementation]() using Markov random field, layer detection or U-net
-___
+with automatic image registration
 
 
-Other functions: 
-___
+## [Image notation]() 
+
+using mouse to create label data for image segmentation
+
+
+## [Image segementation]() 
+
+using Markov random field, layer detection or U-net
+
+
+
+## Other functions: 
+
 
 [file export](vgi_to_tiff)
