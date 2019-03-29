@@ -20,8 +20,9 @@ using mouse to create label data for image segmentation
 
 
 ## [Image segementation]() 
+Markov random field, layer detection or U-net:
 
-using Markov random field, layer detection or U-net
+Markov random field and layer detection image segmentation originated from http://qim.compute.dtu.dk/tools/
 
 
 
