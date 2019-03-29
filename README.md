@@ -16,11 +16,10 @@ Often, industrial CT imaging is limited by its field of view when we are aiming 
 
 ## [Image notation]() 
 
-using mouse to create label data for image segmentation
+using mouse and opencv to create label data for image segmentation
 
 
 ## [Image segementation]() 
-Markov random field, layer detection or U-net:
 
 Markov random field and layer detection image segmentation originated from http://qim.compute.dtu.dk/tools/
 
@@ -29,4 +28,4 @@ Markov random field and layer detection image segmentation originated from http:
 ## Other functions: 
 
 
-[file export](vgi_to_tiff)
+[Nikon CT file export](vgi_to_tiff)
