@@ -21,15 +21,15 @@ Often, industrial CT imaging is limited by its field of view when we are aiming 
 <img src=pre_processing/example_ransac.png height = 400>
 feature matching using RANSAC removing outlier
 
-## [Image annotation](Label_annotation_with_mouse) 
 
+## [Image segementation and porosity analysis]() 
+### 1.[Image annotation](Label_annotation_with_mouse) 
 using mouse and opencv to create label data for image segmentation
-
-
-## [Image segementation]() 
-
+### 2.[Image prepration for segmentation: framing, slicing, resizing]()
+### 3.[Image Segmentation]()
 Markov random field and layer detection image segmentation toolkit originated from http://qim.compute.dtu.dk/tools/
 The implementation of U-net for image segmentation comes largely from https://github.com/zhixuhao/unet
+### 4.[Regional porosity analysis]()
 
 
 
