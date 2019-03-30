@@ -18,15 +18,17 @@ Automap is a deep learning method with convolutional neural network. Originally 
 
 Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use to use machine learning methods for CT image registrion and to stitch two CT volumn to increase the field of view.
 
-<img src=pre_processing/example_ransac.png height = 400>
+<img src=Image_registration_n_stitching/example_ransac.png height = 400>
 feature matching using RANSAC removing outlier
 
 
 ## [Image segementation and porosity analysis]() 
 ### 1.Image annotation
 
-[using mouse and opencv](Image_segmentation/Image_segmentation_using_U-net/Pipeline_step1_image_annotation.ipynb) to create label data for image segmentation
-### 2.Image data manipulation: framing, slicing, resizing: [preparation for CNN](Image_segmentation/Image_segmentation_using_U-net/crop_predict_stitch.ipynb)
+[using mouse as paint brash for labelling images for segmentation](Image_segmentation/Image_segmentation_using_U-net/Pipeline_step1_image_annotation.ipynb) to create label data for image segmentation
+### 2.Image data manipulation: framing, slicing, resizing
+
+[preparation for CNN](Image_segmentation/Image_segmentation_using_U-net/crop_predict_stitch.ipynb)
 ### 3.Image Segmentation
 
 [Unet](mage_segmentation/Image_segmentation_using_U-net) 
