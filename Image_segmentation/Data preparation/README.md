@@ -5,5 +5,7 @@
 
 ### Functions in this folder:
 Pad zero to the image making column and row = 2^n
+
 Slice the image to 2^m smaller pieces, which will be upsampled in the segmentation stage to the size of the network in data generator
+
 Stitch small patches to recover the original image, this will be used for the prediction results (segmented images)
