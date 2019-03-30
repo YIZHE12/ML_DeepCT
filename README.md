@@ -31,7 +31,9 @@ feature matching using RANSAC removing outlier
 [preparation for CNN](Image_segmentation/Image_segmentation_using_U-net/crop_predict_stitch.ipynb)
 ### 3.Image Segmentation
 
-[Unet](mage_segmentation/Image_segmentation_using_U-net) 
+[Unet](image_segmentation/Image_segmentation_using_U-net/unet.jpg) 
+
+<img src=Image_segmentation/Image_segmentation_using_U-net/unet.jpg height = 400>
 
 ## Image analysis
 [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
