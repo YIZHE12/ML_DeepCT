@@ -33,6 +33,8 @@ feature matching using RANSAC removing outlier
 
 [Unet](mage_segmentation/Image_segmentation_using_U-net) 
 
+<img src=Image_registration_n_stitching/Image_segmentation/Image_segmentation_using_U-net/unet.jpg height = 400>
+
 ## Image analysis
 [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
 
