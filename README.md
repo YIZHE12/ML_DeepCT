@@ -38,7 +38,7 @@ feature matching using RANSAC removing outlier
 ## Image analysis
 [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
 
-<img src=Image_analysis/pore_size_distribution.png height = 200>
+<img src=Image_analysis/pore_size_distribution.png height = 400>
 
 ## Other functions: 
 
