@@ -15,3 +15,7 @@ Slice the image to 2^m smaller pieces, which will be upsampled to the size of th
 Stitch small patches to recover the original image, this will be used for the prediction results (segmented images)
 
 Note: the first two steps are also required for the training data 
+
+
+
+The model.py and data.py comes from  https://github.com/zhixuhao/unet, which already has a great implementation of the original u-net architecture in keras.
