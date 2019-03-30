@@ -23,14 +23,16 @@ feature matching using RANSAC removing outlier
 
 
 ## [Image segementation and porosity analysis]() 
-### 1.[Image annotation](Image_segmentation/Image_segmentation_using_U-net/Pipeline_step1_image_annotation.ipynb) 
-using mouse and opencv to create label data for image segmentation
-### 2.[Image data manipulation: framing, slicing, resizing](Image_segmentation/Image_segmentation_using_U-net/crop_predict_stitch.ipynb)
-### 3.[Image Segmentation](CT-image-processing/Image_segmentation)
-Markov random field and layer detection image segmentation toolkit originated from http://qim.compute.dtu.dk/tools/
-The implementation of U-net for image segmentation comes largely from https://github.com/zhixuhao/unet
+### 1.Image annotation
 
-## [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
+[using mouse and opencv](Image_segmentation/Image_segmentation_using_U-net/Pipeline_step1_image_annotation.ipynb) to create label data for image segmentation
+### 2.Image data manipulation: framing, slicing, resizing: [preparation for CNN](Image_segmentation/Image_segmentation_using_U-net/crop_predict_stitch.ipynb)
+### 3.Image Segmentation
+
+[Unet](mage_segmentation/Image_segmentation_using_U-net) 
+
+## Image analysis
+[Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
 
 
 
