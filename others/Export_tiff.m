@@ -1,11 +1,6 @@
 % convert vgi to uint16 tif
-% This code will:
-% Find the VGI file
-% Create a new folder in the current directory 
-% Open the VGI file in a text editor and find the image size 
-% the imagesize is given by nImage,mImage,lImage (size in .vgi file)
-% Read the VOL file based on the given image size and output tif file to
-% the new folder 'Recon_tif + sample name'
+% instruction: run this file under the same directory of the vgi file
+% output: 2D tif sequence data saved under a new folder with the same sample name as the vgi file
 clear all
 close all
 clc
