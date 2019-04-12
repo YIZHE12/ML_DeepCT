@@ -21,7 +21,7 @@ Note: the first two steps are also required for the training data
 The model.py and data.py comes from  https://github.com/zhixuhao/unet, which already has a great implementation of the original u-net architecture in keras.
 
 ### Focal loss 
-I also present a customerised loss function called focal loss. It was invented by [Lin, P Goyal, R Girshick, K He and P Dollar back in 2017 for Dense Object Detection.]ttps://arxiv.org/abs/1708.02002)
+I also present a customerised loss function called focal loss. It was invented by [Lin, P Goyal, R Girshick, K He and P Dollar back in 2017 for Dense Object Detection.](https://arxiv.org/abs/1708.02002)
 
 This paper proposed a new loss funciton for dense objection detection. Its aim is to increase the one stage detector's accuracy so that it can match with the two stage detector methods while maintaing the advantage in speed. The new cost function is a dynamic scale cross entropy with modulation based on prediction confident. It emphasize the loss for low probability and reduce the influence of high confident prediction in the total loss, forcing the network to learn form the weak prediciton. 
 
