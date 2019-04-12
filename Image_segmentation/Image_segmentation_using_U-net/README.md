@@ -1,3 +1,7 @@
+## Contents:
+Note that in the main file (main_train_predict.py), I omitted the data prepration steps, which are included in the ipython notebook Step1 (data cleaning), Step 2(image annotation and slicing). Also, in the mian file, I spilt the dataset to train and test set in order to findout the appropratie number of epoch. In reality, after knowing the number of epoch I should use, I use the whole data (train + test) to train the network for the final prediciton of all images to not waste any labelled data.
+
+
 ### Reasons for data preparation 
 1. When using U-net for segmentation, we need to make sure the input image has the same size as the required input of the model. Therefore, it requires we resize the images.
 2. As most of the convolutional network, one side effect of using pulling layer is that it lose some spatial resolutions. Although U-net has skip connection to reserve some features in the higher resoltuion. In practice, we still find some resolution loss. Therefore, here, I upsampling the data before the image segmentation.
