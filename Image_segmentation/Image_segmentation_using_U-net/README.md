@@ -19,3 +19,20 @@ Note: the first two steps are also required for the training data
 
 
 The model.py and data.py comes from  https://github.com/zhixuhao/unet, which already has a great implementation of the original u-net architecture in keras.
+
+### Focal loss 
+I also present a customerised loss function called focal loss. It was invented by [Lin, P Goyal, R Girshick, K He and P Dollar back in 2017 for Dense Object Detection.]ttps://arxiv.org/abs/1708.02002)
+
+This paper proposed a new loss funciton for dense objection detection. Its aim is to increase the one stage detector's accuracy so that it can match with the two stage detector methods while maintaing the advantage in speed. The new cost function is a dynamic scale cross entropy with modulation based on prediction confident. It emphasize the loss for low probability and reduce the influence of high confident prediction in the total loss, forcing the network to learn form the weak prediciton. 
+
+The implementation is straight forward, by adding a modulating facotor ![](https://latex.codecogs.com/gif.latex?{_{(1-p{_t})}}^{\gamma&space;}), in the cross entropy equation before the summation. If ![](https://latex.codecogs.com/gif.latex?p_{t}) > 0.5, then this term will make its loss contribution smaller, and vice versa. They also proposed to keep ![](https://latex.codecogs.com/gif.latex?\alpha), which is the weighting factor for balanced cross entropy. So the final focal loss function is ![](https://latex.codecogs.com/gif.latex?FL(p{_t})&space;=&space;-\alpha_{t}(1-p{_t}){^{_{}}\gamma}&space;log(p{_t}))
+
+Their proposed improvement is mainly based on the new loss function but not the archetecture themselves. Their RetianNet is based on two well known and well function articheture, the ResNet and FPN. The impact of this articles is that the proposed loss funciton can also be used in any other classification task. 
+
+I tested the focal loss in this image segmentation problem. When comparing the two notebook, you can see that as the two classes are not balanced, with the focal loss, the prediction confidence of the minority class is improved by an order of maginitute 3. This is thanks to the fact that by using focal loss, we forced the network to train on the more difficult areas of the images. 
+
+The authors also mentioned a few other types of methods for inbalanced classes: Hinge loss, weighted loss based on class distribution, Non-max suppresion and fixed background forground ratio in the two-stage detector. 
+
+Non-max suppresion and hinge loss both discard completely of data over a certain threshold but the focal loss still keep this informatin for later training. This could be reason why focal loss with the RetinaNet has superior performance compared to previous methods. 
+
+However, due to the added exp weight based on class probability, it can be unstable. Therefore, it needs to use sigmoid instead of ReLu in the RetinaNet, also it need to add alpha, and using prior for model initialization to damping down the effect of the power law term. However, because alpha is on top of the power law term, the impact and the range of an ideal alpha are small. Although the author pointed out that the exact form of the focal loss doesn't matter. I think eventhough it doesn't change the average accuracy, but a more modest term will imporve the stability. I will suggest to add a linear term to damping down the effect, in other words, used <img src="http://www.sciweavers.org/tex2img.php?eq=-%28%281-%20P_%7Bt%7D%29%7B%5E%5Cgamma%7D%2B%5Calpha%7B_t%7D%281-p%7B_t%7D%29%29log%28p%7B_t%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="-((1- P_{t}){^\gamma}+\alpha{_t}(1-p{_t}))log(p{_t})" width="261" height="21" /> instead.
