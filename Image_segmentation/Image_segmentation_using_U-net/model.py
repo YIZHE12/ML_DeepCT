@@ -8,7 +8,7 @@ from keras.layers import *
 from keras.optimizers import *
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras import backend as keras
-
+from keras.utils import multi_gpu_model
 
 def unet(pretrained_weights = None,input_size = (256,256,1)):
     inputs = Input(input_size)
@@ -65,7 +65,7 @@ def unet(pretrained_weights = None,input_size = (256,256,1)):
 
     outputs = Conv2D(1, (1, 1), activation='sigmoid') (c9)
     model = Model(input = inputs, output = outputs)
-
+    model = multi_gpu_model(model)
     model.compile(optimizer = Adam(lr = 1e-4), loss = 'binary_crossentropy', metrics = ['accuracy'])
     
     #model.summary()
