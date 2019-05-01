@@ -15,6 +15,9 @@ from skimage.transform import match_histograms
 from skimage.measure import compare_ssim as ssim
 from skimage.transform import rotate
 
+from skimage.morphology import disk
+from skimage.morphology import black_tophat
+
 def load_images_from_folder(folder):
 	"""
 	read image from folder
@@ -28,25 +31,31 @@ def load_images_from_folder(folder):
 	images = np.asarray(images)
 	return images
 
+def remove_uneven_illumination(data):
+	s = np.shape(data)
+	date_new = np.zeros(s, dtype = float)
+
+	for i in range(s[2]):
+		date_new[:,:,i] = 255-black_tophat(data[:,:,i], disk(31))
+
+	return(date_new)
+
 def prepare_data(left, right):
 	"""
 	prepare data to the correct shape 
 	"""
 
 	if np.rank(left) == 3: # if it is a volumn
-		data_left = left[7:-7,:]
-
-
+		data_left = left[7:-7,:-6] # remove the empty part
 	else: # if it is a folder		
 		data_left = load_images_from_folder(left)
 		data_left = np.swapaxes(data_left,1, 2)
-
+		
 	data_right = load_images_from_folder(right)
 	data_right = np.swapaxes(data_right,1, 2)
 	
 	s_left = np.shape(data_left)
 	s_right = np.shape(data_right)
-	
 	dif_n_row = s_left[0] - s_right[0] # different in number of row
 
 	if dif_n_row<0: # if right image has more row than the left image
@@ -56,6 +65,8 @@ def prepare_data(left, right):
 	print ('left image has size:', np.shape(data_left))
 	print ('right image has size:', np.shape(data_right))
 	
+	
+
 	return(data_left, data_right)
 
 def rotate_vol(data, angle):
@@ -74,7 +85,7 @@ def rotate_vol(data, angle):
 
 
 
-def find_corresponding_index(data_left, data_right, left_index, right_index, verbose = True, figsize = (2,5)):
+def find_corresponding_index(data_left, data_right, left_index, right_index, verbose = True, figsize = (2,5), offset_columns = 100):
 	"""
 	Manual prealigment: find the index in the left image that correspond to 
 	the index in the right image by comparing the image slices
@@ -89,8 +100,8 @@ def find_corresponding_index(data_left, data_right, left_index, right_index, ver
 	"""
 
 
-	image0 = data_left[:,-100:,left_index]
-	image1 = data_right[:,1:100,right_index] # remove the first pixel
+	image0 = data_left[:,-offset_columns:,left_index]
+	image1 = data_right[:,1:offset_columns,right_index] # remove the first pixel
 	if verbose:
 		fig=plt.figure(figsize = (10,5))	
 		plt.subplot(121)
@@ -213,11 +224,14 @@ def merge_small_img(image0, image1, model_robust, verbose = 1):
     image1_ = warp(image1, (model_robust + offset).inverse,
                    output_shape=output_shape, cval=0)
     
-    image_merge = np.where(image0_ == 0, image1_,image0_)
+    #image_merge = np.where(image0_ == 0, image1_,image0_)
     mask = (cv2.bitwise_and(image0_,image1_)>0)
     #image_merge[mask>0] = image_merge[mask>0]/2
     ssim_value = ssim(image0_*mask, image1_*mask,
                  data_range=1)
+
+    image_merge = image1_ + image0_
+    image_merge[mask] = image_merge[mask]/2
     if verbose:
         plt.figure(figsize = (5,5))
         ax1 = plt.subplot(131)
@@ -247,7 +261,7 @@ def find_most_likely_index(data_left, data_right,left_index, right_index):
     return (models, simi_values)
 
 
-def find_most_likely_index_auto(data_left, data_right):
+def find_most_likely_index_auto(data_left, data_right, offset_columns = 100, index_range = 15):
     simi_values = []
     models = []
     right_indexs =[]
@@ -257,9 +271,9 @@ def find_most_likely_index_auto(data_left, data_right):
     right_index = round(np.shape(data_right)[2]/2) 
 
 
-    for i in range(-15,15): # check the image similarity around the chosen frame
+    for i in range(-index_range,index_range): # check the image similarity around the chosen frame
         test_index = right_index+i
-        image_left, image_right = find_corresponding_index(data_left, data_right, left_index, test_index, verbose = False)
+        image_left, image_right = find_corresponding_index(data_left, data_right, left_index, test_index, verbose = False, offset_columns = offset_columns)
         image_left = histogram_matching(image_left, image_right,  verbose = False)        
         model_robust=image_registration(image_left, image_right, verbose = False)
         image_merge, simi_value = merge_small_img(image_left, image_right, model_robust,verbose = False)
@@ -274,7 +288,7 @@ def find_most_likely_index_auto(data_left, data_right):
     return (model, left_index, right_index )
 
 
-def merge_full_image(data_left, data_right, left_index, right_index, model_robust, verbose = 1, hist_match = 1):
+def merge_full_image(data_left, data_right, left_index, right_index, model_robust, verbose = 1, hist_match = 1, offset_columns = 100):
 	"""
 	merge the whole CT slice
 	Parameters:
@@ -321,7 +335,7 @@ def merge_full_image(data_left, data_right, left_index, right_index, model_robus
 
 	output_shape = (corner_max - corner_min)
 	if warped_corners[0][0]<0:
-		offset_box = -warped_corners[0][0]+102
+		offset_box = -warped_corners[0][0]+offset_columns # change from 102
 	else:
 		offset_box = warped_corners[0][0]
 	output_shape[0]=n_col - offset_box
@@ -335,7 +349,7 @@ def merge_full_image(data_left, data_right, left_index, right_index, model_robus
 				   output_shape=output_shape, cval=-1) 
 	# pad -1 to the left image to the same shape as output_shape
 
-	offset = EuclideanTransform(translation=(size_left[1]-99,0)) 
+	offset = EuclideanTransform(translation=(size_left[1]-(offset_columns+2),0)) 
 	# move the right image 
 
 	image1_ = warp(image_right, (model_robust + offset).inverse, 
@@ -379,7 +393,7 @@ def histogram_match_vol(vol1, vol2):
 	vol1 = np.reshape(vol1,s1)
 	return(vol1)    
 
-def merge_vol(left_index, right_index, data_left, data_right, model_robust, image_merge):
+def merge_vol(left_index, right_index, data_left, data_right, model_robust, image_merge, offset_columns = 100):
 	"""
 	stitch the CT volumn data_left and data_right
 	Parameters:
@@ -417,5 +431,5 @@ def merge_vol(left_index, right_index, data_left, data_right, model_robust, imag
 	print ('stitched volumn has shape:', np.shape(vol_merge))
 	
 	for i in range(n_index_total):
-			vol_merge[:,:,i] = merge_full_image(data_left, data_right, i,  i, model_robust, verbose = 0, hist_match = 1)
+			vol_merge[:,:,i] = merge_full_image(data_left, data_right, i,  i, model_robust, verbose = 0, hist_match = 1, offset_columns = offset_columns)
 	return(vol_merge)
