@@ -1,4 +1,4 @@
-# X-ray and CT image processing
+# X-ray and CT image processing using machine learning and deep learning
 
 ## [Image reconstruction](Image_reconstruction)
 
