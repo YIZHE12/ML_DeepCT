@@ -29,12 +29,12 @@ projection data. In case of discrepancy, the first image estimate is updated bas
 the underlying algorithm. This correction of image and projection data is repeated until a condition predefined
 by the algorithm is satisfied and the final image is generated.
 
+Compared to the traditional filtered back projection, iteratvie CT reconstruction can recover the signal from much more nosiy data. Therefore, we can dramatically reduce the exposure time for each CT projection (angle) and/or the total number of projections (angles, leading to less patient radiation exposure or higher time resolution for dynamic CT.
 
-Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebraic reconstruction techniques. 
-[In this example](Image_reconstruction/Astra), I show how to combine Astra with novel resampling method to increase the time resolution of CT by 8-fold.
+Combining with a smart sampling scheme in [my paper](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10391/103910M/Micro-CT-in-situ-study-of-carbonate-rock-microstructural-evolution/10.1117/12.2273877.full?SSO=1), I show that with iterative reconstruction method, it is possible to increase the time resolution of CT by 8-fold.
 
 <img src=Image_reconstruction/Astra/example.png height = 300>
-Astra tool box (https://www.astra-toolbox.com) is developed and maintained by  iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam 
+
 __
 ### Deep learning method
 
