@@ -1,7 +1,7 @@
 # X-ray and CT image processing using machine learning and deep learning
 
 ## [Image reconstruction](Image_reconstruction)
-___
+_
 ### Traditional method - filter back projection
 
 <img src=/images/ctsim_a60.gif height = 300> (http://xrayphysics.com/ctsim.html)
