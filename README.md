@@ -3,6 +3,8 @@
 ## [Image reconstruction](Image_reconstruction)
 
 ### Astra 
+<img src=/images/IT_CT_recon.png height = 300>
+
 Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebraic reconstruction techniques. 
 [In this example](Image_reconstruction/Astra), I show how to combine Astra with novel resampling method to increase the time resolution of CT by 8-fold.
 
