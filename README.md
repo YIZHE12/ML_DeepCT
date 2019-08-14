@@ -4,7 +4,7 @@
 
 ### Traditional method - filter back projection
 
-<img src=/images/ctsim_a60.png height = 300> (http://xrayphysics.com/ctsim.html)
+<img src=/images/ctsim_a60.gif height = 300> (http://xrayphysics.com/ctsim.html)
 
 #### Backprojection
 The standard method of reconstructing CT slices is backprojection. This involves "smearing back" the projection across the image at the angle it was acquired. By smearing back all of the projections, you reconstruct an image. This image looks similar to the real picture but is blurry - we smeared bright pixels across the entire image instead of putting them exactly where they belonged. You can see this effect in the simulator on the right-most panel.
