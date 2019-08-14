@@ -1,7 +1,7 @@
 # X-ray and CT image processing using machine learning and deep learning
 
 ## [Image reconstruction](Image_reconstruction)
-_
+
 ### Traditional method - filter back projection
 
 <img src=/images/ctsim_a60.gif height = 300> (http://xrayphysics.com/ctsim.html)
@@ -33,7 +33,6 @@ Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebr
 
 <img src=Image_reconstruction/Astra/example.png height = 300>
 Astra tool box (https://www.astra-toolbox.com) is developed and maintained by  iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam 
-___
 
 ### Deep learning method
 
