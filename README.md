@@ -34,10 +34,17 @@ Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebr
 <img src=Image_reconstruction/Astra/example.png height = 300>
 Astra tool box (https://www.astra-toolbox.com) is developed and maintained by  iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam 
 ___
-### Deep learning method
-Automap is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. Here, I further developed it for [CT image reconsturction](Image_reconstruction/Deep_learning), which has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
 
-<img src=Image_reconstruction/Deep_learning/automap.jpg height = 300>
+### Deep learning method
+
+Automated transform by manifold approximation (Automap) is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. 
+<img src=Image_reconstruction/Deep_learning/automap_ori.jpg height = 400>
+
+I further developed Automap for [CT image reconsturction](Image_reconstruction/Deep_learning). CT has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. 
+
+I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
+
+<img src=Image_reconstruction/Deep_learning/automap.jpg height = 500>
 
 ## [Image registration and stitching](Image_registration_n_stitching) 
 
