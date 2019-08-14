@@ -2,8 +2,31 @@
 
 ## [Image reconstruction](Image_reconstruction)
 
-### Astra 
-<img src=/images/IT_CT_recon.png height = 300>
+### Traditional method - filter back projection
+
+<img src=/images/ctsim_a60.png height = 300> (http://xrayphysics.com/ctsim.html)
+
+#### Backprojection
+The standard method of reconstructing CT slices is backprojection. This involves "smearing back" the projection across the image at the angle it was acquired. By smearing back all of the projections, you reconstruct an image. This image looks similar to the real picture but is blurry - we smeared bright pixels across the entire image instead of putting them exactly where they belonged. You can see this effect in the simulator on the right-most panel.
+
+In order to reconstruct an image, you need 180 degrees of data (* actually 180 + fan beam angle). Why? The remaining 180 degrees are simply a mirror image of the first (because it does not matter which way a photon travels through tissue, it will be attenuated the same amount). (Because of the fan beam geometry, you need to measure an extra amount - equal to the fan angle - to actually get all of the data you need, but the concept is the same.)
+
+In a fan-beam geometry, the angle of the fan determines how much of the object is included in the reconstructible field of view. A point must be included in all 180 degrees of projections in order to be reconstructed correctly.
+
+#### Filtered Backprojection
+As you may have noticed, backprojection smears or blurs the final image. In order to fix the blurring problem created by standard backprojection, we use filtered backprojection. Filtering refers to altering the projection data before we do the back-projections. The particular type of filter needed is a high-pass filter, or a sharpening filter. This type of filter picks up sharp edges within the projection (and thus, in the underlying slice) and tends to ignore flat areas. Because the highpass filter actually creates negative pixels at the edges, it subtracts out the extra smearing caused by backprojection. Thus, you end up with the correct reconstruction (see the simulator panel labeled "Filtered BP Reconstruction").
+
+### Iterative method
+
+<img src=/images/IT_CT_recon.png height = 500>
+
+Schematic representation of the principle steps of iterative image algorithms: following the CT
+acquisition process (measured projections), a first image estimate is generated. An x-ray beam is simulated
+via forward projection to obtain simulated projection data, which are then compared with the measured
+projection data. In case of discrepancy, the first image estimate is updated based on the characteristics of
+the underlying algorithm. This correction of image and projection data is repeated until a condition predefined
+by the algorithm is satisfied and the final image is generated.
+
 
 Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebraic reconstruction techniques. 
 [In this example](Image_reconstruction/Astra), I show how to combine Astra with novel resampling method to increase the time resolution of CT by 8-fold.
@@ -11,7 +34,7 @@ Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebr
 <img src=Image_reconstruction/Astra/example.png height = 300>
 Astra tool box (https://www.astra-toolbox.com) is developed and maintained by  iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam 
 
-### Automap
+### Deep learning method
 Automap is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. Here, I further developed it for [CT image reconsturction](Image_reconstruction/Deep_learning), which has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
 
 <img src=Image_reconstruction/Deep_learning/automap.jpg height = 300>
