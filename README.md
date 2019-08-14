@@ -35,7 +35,8 @@ Combining with a smart sampling scheme in [my paper](https://www.spiedigitallibr
 
 <img src=Image_reconstruction/Astra/example.png height = 300>
 
-__
+___
+
 ### Deep learning method
 
 Automated transform by manifold approximation (Automap) is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. 
@@ -46,7 +47,9 @@ I further developed Automap for [CT image reconsturction](Image_reconstruction/D
 I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
 
 <img src=Image_reconstruction/Deep_learning/automap.jpg height = 500>
+
 ___
+
 ## [Image registration and stitching](Image_registration_n_stitching) 
 
 Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use to use machine learning methods for CT image registrion and to stitch two CT volumn to increase the field of view.
@@ -55,6 +58,7 @@ Often, industrial CT imaging is limited by its field of view when we are aiming 
 feature matching using RANSAC removing outlier
 
 ___
+
 ## [Image segementation](https://github.com/YIZHE12/ML_DeepCT/tree/master/Image_segmentation/Image_segmentation_using_U-net) 
 ### 1.Image annotation
 
@@ -72,6 +76,8 @@ ___
 [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
 
 <img src=Image_analysis/pore_size_distribution.png height = 400>
+
+___
 
 ## Other functions: 
 
