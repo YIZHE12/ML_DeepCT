@@ -17,7 +17,7 @@ In a fan-beam geometry, the angle of the fan determines how much of the object i
 #### Filtered Backprojection
 As you may have noticed, backprojection smears or blurs the final image. In order to fix the blurring problem created by standard backprojection, we use filtered backprojection. Filtering refers to altering the projection data before we do the back-projections. The particular type of filter needed is a high-pass filter, or a sharpening filter. This type of filter picks up sharp edges within the projection (and thus, in the underlying slice) and tends to ignore flat areas. Because the highpass filter actually creates negative pixels at the edges, it subtracts out the extra smearing caused by backprojection. Thus, you end up with the correct reconstruction (see the simulator panel labeled "Filtered BP Reconstruction").
 ___
-### Iterative method
+### [Iterative method](/Image_reconstruction/Astra)
 
 <img src=/images/IT_CT_recon.png height = 500>
 (https://pubs.rsna.org/doi/pdf/10.1148/radiol.2015132766)
@@ -37,7 +37,7 @@ Combining with a smart sampling scheme in [my paper](https://www.spiedigitallibr
 
 ___
 
-### Deep learning method
+### [Deep learning method](/Image_reconstruction/Deep_learning)
 
 Automated transform by manifold approximation (Automap) is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. 
 <img src=images/automap_ori.jpg height = 400>
