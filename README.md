@@ -20,6 +20,7 @@ ___
 ### Iterative method
 
 <img src=/images/IT_CT_recon.png height = 500>
+(https://pubs.rsna.org/doi/pdf/10.1148/radiol.2015132766)
 
 Schematic representation of the principle steps of iterative image algorithms: following the CT
 acquisition process (measured projections), a first image estimate is generated. An x-ray beam is simulated
