@@ -1,7 +1,7 @@
 # X-ray and CT image processing using machine learning and deep learning
 
 ## [Image reconstruction](Image_reconstruction)
-
+___
 ### Traditional method - filter back projection
 
 <img src=/images/ctsim_a60.gif height = 300> (http://xrayphysics.com/ctsim.html)
@@ -15,7 +15,7 @@ In a fan-beam geometry, the angle of the fan determines how much of the object i
 
 #### Filtered Backprojection
 As you may have noticed, backprojection smears or blurs the final image. In order to fix the blurring problem created by standard backprojection, we use filtered backprojection. Filtering refers to altering the projection data before we do the back-projections. The particular type of filter needed is a high-pass filter, or a sharpening filter. This type of filter picks up sharp edges within the projection (and thus, in the underlying slice) and tends to ignore flat areas. Because the highpass filter actually creates negative pixels at the edges, it subtracts out the extra smearing caused by backprojection. Thus, you end up with the correct reconstruction (see the simulator panel labeled "Filtered BP Reconstruction").
-
+___
 ### Iterative method
 
 <img src=/images/IT_CT_recon.png height = 500>
@@ -33,7 +33,7 @@ Astra is a CUDA based GPU toolkit for X-ray CT image reconsturction using algebr
 
 <img src=Image_reconstruction/Astra/example.png height = 300>
 Astra tool box (https://www.astra-toolbox.com) is developed and maintained by  iMinds-Vision Lab, University of Antwerp http://visielab.uantwerpen.be/ and 2014-2016, CWI, Amsterdam 
-
+___
 ### Deep learning method
 Automap is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. Here, I further developed it for [CT image reconsturction](Image_reconstruction/Deep_learning), which has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
 
