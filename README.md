@@ -52,10 +52,21 @@ ___
 
 ## [Image registration and stitching](Image_registration_n_stitching) 
 
-Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use to use machine learning methods for CT image registrion and to stitch two CT volumn to increase the field of view.
+Often, industrial CT imaging is limited by its field of view when we are aiming at a high spatial resolution. Here, I demonstrated how to use to use machine learning methods for CT image registrion and to stitch two CT volumn to increase the field of view. I first used Oriented FAST and rotated BRIEF feature detector (ORB) to detect features in the two images, then used RANSAC to register the two images using the detected features. 
 
-<img src=Image_registration_n_stitching/example_ransac.png height = 400>
-feature matching using RANSAC removing outlier
+Orb algorithm uses a multiscale image pyramid. Each level in the pyramid contains the downsampled version of the image than the previous level. Once orb has created a pyramid it uses the fast algorithm to detect keypoints in the image. By detecting keypoints at each level orb is effectively locating key points at a different scale. 
+
+<img src = images/orb2.png>
+
+Random sample consensus (RANSAC) is an iterative method to estimate parameters of a mathematical model from a set of observed data that contains outliers, when outliers are to be accorded no influence on the values of the estimates. Therefore, it also can be interpreted as an outlier detection method.
+
+<img src = images/ransac.png>
+
+Combining ORB and RANSAC results in a robust image registration techniques that can be used in many different applications, including face recognition]. 
+
+<img src = images/ORB_RANSAC.png> [(Vinay A et al, Procedia Computer Science, 2015)](https://www.sciencedirect.com/science/article/pii/S1877050915032329)
+
+
 
 ___
 
