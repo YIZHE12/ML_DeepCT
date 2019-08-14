@@ -22,7 +22,7 @@ Often, industrial CT imaging is limited by its field of view when we are aiming 
 feature matching using RANSAC removing outlier
 
 
-## [Image segementation and porosity analysis]() 
+## [Image segementation](https://github.com/YIZHE12/ML_DeepCT/tree/master/Image_segmentation/Image_segmentation_using_U-net) 
 ### 1.Image annotation
 
 [using mouse as paint brash for labelling images for segmentation](Image_segmentation/Image_segmentation_using_U-net/Pipeline_step1_image_annotation.ipynb) to create label data for image segmentation
@@ -35,7 +35,7 @@ feature matching using RANSAC removing outlier
 
 <img src=Image_segmentation/Image_segmentation_using_U-net/unet.jpg height = 400>
 
-## Image analysis
+## [Image analysis](https://github.com/YIZHE12/ML_DeepCT/tree/master/Image_analysis)
 [Regional porosity analysis](Image_analysis/porosity_regional_stats.py)
 
 <img src=Image_analysis/pore_size_distribution.png height = 400>
