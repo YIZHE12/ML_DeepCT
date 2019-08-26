@@ -46,7 +46,7 @@ I further developed Automap for [CT image reconsturction](Image_reconstruction/D
 
 I also added dropout layers into the original network design and show that in this way, we can not only reconstruct the CT image with little number of projections, but also reconstruct it even when there is large distrotion due to missing data (bad pixels on detector) or random shift (patient movement).
 
-<img src=Image_reconstruction/Deep_learning/automap.jpg height = 500> [Y Zheng et al, SPIE(2017)](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10391/103910M/Micro-CT-in-situ-study-of-carbonate-rock-microstructural-evolution/10.1117/12.2273877.full?SSO=1)
+<img src=Image_reconstruction/Deep_learning/automap.jpg height = 300> [Y Zheng et al, SPIE(2017)](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10391/103910M/Micro-CT-in-situ-study-of-carbonate-rock-microstructural-evolution/10.1117/12.2273877.full?SSO=1)
 
 ___
 
