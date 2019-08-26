@@ -40,7 +40,8 @@ ___
 ### [Deep learning method](/Image_reconstruction/Deep_learning)
 
 Automated transform by manifold approximation (Automap) is a deep learning method with convolutional neural network. Originally developed for MRI image reconstruction. 
-<img src=images/automap_ori.jpg height = 400> [B Zhu et al, Nature 2018](https://www.nature.com/articles/nature25988)
+<img src=images/automap_ori.jpg height = 400> 
+[B Zhu et al, Nature 2018](https://www.nature.com/articles/nature25988)
 
 I further developed Automap for [CT image reconsturction](Image_reconstruction/Deep_learning). CT has a different sampling scheme as MRI: MRI acquisition scheme is in k-space with complex number while CT data acquisition scheme is a sinogram. 
 
